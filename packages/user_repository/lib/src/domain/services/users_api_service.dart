@@ -7,7 +7,7 @@ part 'users_api_service.chopper.dart';
 abstract class UsersApiService extends ChopperService {
   static UsersApiService create([ChopperClient? client]) => _$UsersApiService(client);
 
-  @Get()
+  @Get(headers: {'Accept': 'application/json', 'Content-Type': 'application/json'})
   Future<Response<List<User>>> getUsers();
 
   // @Post()
