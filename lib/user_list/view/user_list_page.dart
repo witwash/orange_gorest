@@ -19,6 +19,10 @@ class UserListPage extends StatelessWidget {
           title: const Text('Orange User List'),
         ),
         body: const UserListView(),
+        floatingActionButton: FloatingActionButton(
+          child: const Icon(Icons.add),
+          onPressed: () {},
+        ),
       ),
     );
   }
