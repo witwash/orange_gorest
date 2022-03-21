@@ -1,4 +1,4 @@
-name: gorest_repository
+name: user_repository
 description: A new Flutter package project.
 version: 0.0.1
 homepage:
@@ -8,21 +8,22 @@ environment:
   flutter: ">=1.17.0"
 
 dependencies:
+  chopper: ^4.0.5
   flutter:
     sdk: flutter
-  chopper: ^4.0.5
+  freezed_annotation: ^1.1.0  
+  http: ^0.13.4
   json_annotation: ^4.4.0
-  freezed_annotation: ^1.1.0
 
 dev_dependencies:
+  build_runner: ^2.1.8
+  chopper_generator: ^4.0.5
+  flutter_lints: ^1.0.0
   flutter_test:
     sdk: flutter
-  flutter_lints: ^1.0.0
-  build_runner: ^2.1.8
-  json_serializable: ^6.1.5
   freezed: ^1.1.1
-  chopper_generator: ^4.0.5
+  json_serializable: ^6.1.5
   lint: ^1.8.2
-  
+
 flutter:
 

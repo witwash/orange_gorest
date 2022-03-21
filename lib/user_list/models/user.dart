@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'user.freezed.dart';
@@ -8,6 +9,8 @@ enum Gender {
   female,
   omitted,
 }
+
+Gender getGenderEnum(dynamic genderValue) => Gender.values.firstWhere((e) => describeEnum(e) == genderValue);
 
 @freezed
 class User with _$User {

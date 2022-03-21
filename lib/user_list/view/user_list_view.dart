@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:orange_gorest/user_list/bloc/user_list_bloc.dart';
+import 'package:orange_gorest/user_list/models/user.dart';
 
 class UserListView extends StatefulWidget {
   const UserListView({Key? key}) : super(key: key);
@@ -13,14 +16,26 @@ class UserListView extends StatefulWidget {
 class _UserListViewState extends State<UserListView> {
   @override
   Widget build(BuildContext context) {
-    return ListView.builder(
-      itemBuilder: (context, index) {
-        return ListTile(
-          title: Text('User $index'),
-          subtitle: Text('Details: $index'),
+    return BlocBuilder<UserListBloc, UserListState>(
+      builder: (context, state) {
+        return state.when(
+          initial: () => const Center(
+            child: Text('Hello there'),
+          ),
+          loading: () => const Center(
+            child: Text('Loading...'),
+          ),
+          loaded: (users) => ListView.builder(
+            itemBuilder: (context, index) {
+              return ListTile(
+                title: Text('User: ${users[index].name}'),
+                subtitle: Text('Details:  ${users[index].email}'),
+              );
+            },
+            itemCount: users.length,
+          ),
         );
       },
-      itemCount: 200,
     );
   }
 }
