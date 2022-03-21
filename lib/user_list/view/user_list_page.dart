@@ -12,7 +12,7 @@ class UserListPage extends StatelessWidget {
     return BlocProvider(
       create: (context) => UserListBloc(userRepository: context.read<UserRepository>())
         ..add(
-          const UserListEvent.started(),
+          const UserListEvent.startLoading(),
         ),
       child: Scaffold(
         appBar: AppBar(

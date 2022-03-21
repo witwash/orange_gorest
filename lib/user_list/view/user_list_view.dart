@@ -34,6 +34,7 @@ class _UserListViewState extends State<UserListView> {
             },
             itemCount: users.length,
           ),
+          error: () => const Center(child: Text('Oppes, erores')),
         );
       },
     );

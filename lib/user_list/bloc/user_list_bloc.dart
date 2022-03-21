@@ -13,11 +13,12 @@ class UserListBloc extends Bloc<UserListEvent, UserListState> {
   UserListBloc({required this.userRepository}) : super(const Initial()) {
     on<Started>(_onStarted);
     on<Finished>(_onFinished);
+    on<Error>(_onError);
   }
 
   final repository.UserRepository userRepository;
 
-  FutureOr<void> _onStarted(UserListEvent event, Emitter<UserListState> emit) async {
+  FutureOr<void> _onStarted(Started event, Emitter<UserListState> emit) async {
     emit(const UserListState.loading());
     final List<repository.User> users = await userRepository.getUsers();
     emit(
@@ -37,5 +38,9 @@ class UserListBloc extends Bloc<UserListEvent, UserListState> {
     );
   }
 
-  FutureOr<void> _onFinished(event, emit) {}
+  FutureOr<void> _onFinished(Finished event, Emitter<UserListState> emit) {}
+
+  FutureOr<void> _onError(Error event, Emitter<UserListState> emit) {
+    emit(const UserListState.error());
+  }
 }

@@ -18,12 +18,16 @@ final _privateConstructorUsedError = UnsupportedError(
 class _$UserListEventTearOff {
   const _$UserListEventTearOff();
 
-  Started started() {
+  Started startLoading() {
     return const Started();
   }
 
-  Finished finished() {
+  Finished loadingFinished() {
     return const Finished();
+  }
+
+  Error error() {
+    return const Error();
   }
 }
 
@@ -34,39 +38,45 @@ const $UserListEvent = _$UserListEventTearOff();
 mixin _$UserListEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() started,
-    required TResult Function() finished,
+    required TResult Function() startLoading,
+    required TResult Function() loadingFinished,
+    required TResult Function() error,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? started,
-    TResult Function()? finished,
+    TResult Function()? startLoading,
+    TResult Function()? loadingFinished,
+    TResult Function()? error,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? started,
-    TResult Function()? finished,
+    TResult Function()? startLoading,
+    TResult Function()? loadingFinished,
+    TResult Function()? error,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(Started value) started,
-    required TResult Function(Finished value) finished,
+    required TResult Function(Started value) startLoading,
+    required TResult Function(Finished value) loadingFinished,
+    required TResult Function(Error value) error,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(Started value)? started,
-    TResult Function(Finished value)? finished,
+    TResult Function(Started value)? startLoading,
+    TResult Function(Finished value)? loadingFinished,
+    TResult Function(Error value)? error,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(Started value)? started,
-    TResult Function(Finished value)? finished,
+    TResult Function(Started value)? startLoading,
+    TResult Function(Finished value)? loadingFinished,
+    TResult Function(Error value)? error,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -112,7 +122,7 @@ class _$Started implements Started {
 
   @override
   String toString() {
-    return 'UserListEvent.started()';
+    return 'UserListEvent.startLoading()';
   }
 
   @override
@@ -127,30 +137,33 @@ class _$Started implements Started {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() started,
-    required TResult Function() finished,
+    required TResult Function() startLoading,
+    required TResult Function() loadingFinished,
+    required TResult Function() error,
   }) {
-    return started();
+    return startLoading();
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? started,
-    TResult Function()? finished,
+    TResult Function()? startLoading,
+    TResult Function()? loadingFinished,
+    TResult Function()? error,
   }) {
-    return started?.call();
+    return startLoading?.call();
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? started,
-    TResult Function()? finished,
+    TResult Function()? startLoading,
+    TResult Function()? loadingFinished,
+    TResult Function()? error,
     required TResult orElse(),
   }) {
-    if (started != null) {
-      return started();
+    if (startLoading != null) {
+      return startLoading();
     }
     return orElse();
   }
@@ -158,30 +171,33 @@ class _$Started implements Started {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(Started value) started,
-    required TResult Function(Finished value) finished,
+    required TResult Function(Started value) startLoading,
+    required TResult Function(Finished value) loadingFinished,
+    required TResult Function(Error value) error,
   }) {
-    return started(this);
+    return startLoading(this);
   }
 
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(Started value)? started,
-    TResult Function(Finished value)? finished,
+    TResult Function(Started value)? startLoading,
+    TResult Function(Finished value)? loadingFinished,
+    TResult Function(Error value)? error,
   }) {
-    return started?.call(this);
+    return startLoading?.call(this);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(Started value)? started,
-    TResult Function(Finished value)? finished,
+    TResult Function(Started value)? startLoading,
+    TResult Function(Finished value)? loadingFinished,
+    TResult Function(Error value)? error,
     required TResult orElse(),
   }) {
-    if (started != null) {
-      return started(this);
+    if (startLoading != null) {
+      return startLoading(this);
     }
     return orElse();
   }
@@ -214,7 +230,7 @@ class _$Finished implements Finished {
 
   @override
   String toString() {
-    return 'UserListEvent.finished()';
+    return 'UserListEvent.loadingFinished()';
   }
 
   @override
@@ -229,30 +245,33 @@ class _$Finished implements Finished {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() started,
-    required TResult Function() finished,
+    required TResult Function() startLoading,
+    required TResult Function() loadingFinished,
+    required TResult Function() error,
   }) {
-    return finished();
+    return loadingFinished();
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? started,
-    TResult Function()? finished,
+    TResult Function()? startLoading,
+    TResult Function()? loadingFinished,
+    TResult Function()? error,
   }) {
-    return finished?.call();
+    return loadingFinished?.call();
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? started,
-    TResult Function()? finished,
+    TResult Function()? startLoading,
+    TResult Function()? loadingFinished,
+    TResult Function()? error,
     required TResult orElse(),
   }) {
-    if (finished != null) {
-      return finished();
+    if (loadingFinished != null) {
+      return loadingFinished();
     }
     return orElse();
   }
@@ -260,30 +279,33 @@ class _$Finished implements Finished {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(Started value) started,
-    required TResult Function(Finished value) finished,
+    required TResult Function(Started value) startLoading,
+    required TResult Function(Finished value) loadingFinished,
+    required TResult Function(Error value) error,
   }) {
-    return finished(this);
+    return loadingFinished(this);
   }
 
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(Started value)? started,
-    TResult Function(Finished value)? finished,
+    TResult Function(Started value)? startLoading,
+    TResult Function(Finished value)? loadingFinished,
+    TResult Function(Error value)? error,
   }) {
-    return finished?.call(this);
+    return loadingFinished?.call(this);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(Started value)? started,
-    TResult Function(Finished value)? finished,
+    TResult Function(Started value)? startLoading,
+    TResult Function(Finished value)? loadingFinished,
+    TResult Function(Error value)? error,
     required TResult orElse(),
   }) {
-    if (finished != null) {
-      return finished(this);
+    if (loadingFinished != null) {
+      return loadingFinished(this);
     }
     return orElse();
   }
@@ -291,6 +313,114 @@ class _$Finished implements Finished {
 
 abstract class Finished implements UserListEvent {
   const factory Finished() = _$Finished;
+}
+
+/// @nodoc
+abstract class $ErrorCopyWith<$Res> {
+  factory $ErrorCopyWith(Error value, $Res Function(Error) then) =
+      _$ErrorCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class _$ErrorCopyWithImpl<$Res> extends _$UserListEventCopyWithImpl<$Res>
+    implements $ErrorCopyWith<$Res> {
+  _$ErrorCopyWithImpl(Error _value, $Res Function(Error) _then)
+      : super(_value, (v) => _then(v as Error));
+
+  @override
+  Error get _value => super._value as Error;
+}
+
+/// @nodoc
+
+class _$Error implements Error {
+  const _$Error();
+
+  @override
+  String toString() {
+    return 'UserListEvent.error()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is Error);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() startLoading,
+    required TResult Function() loadingFinished,
+    required TResult Function() error,
+  }) {
+    return error();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? startLoading,
+    TResult Function()? loadingFinished,
+    TResult Function()? error,
+  }) {
+    return error?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? startLoading,
+    TResult Function()? loadingFinished,
+    TResult Function()? error,
+    required TResult orElse(),
+  }) {
+    if (error != null) {
+      return error();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(Started value) startLoading,
+    required TResult Function(Finished value) loadingFinished,
+    required TResult Function(Error value) error,
+  }) {
+    return error(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(Started value)? startLoading,
+    TResult Function(Finished value)? loadingFinished,
+    TResult Function(Error value)? error,
+  }) {
+    return error?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(Started value)? startLoading,
+    TResult Function(Finished value)? loadingFinished,
+    TResult Function(Error value)? error,
+    required TResult orElse(),
+  }) {
+    if (error != null) {
+      return error(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class Error implements UserListEvent {
+  const factory Error() = _$Error;
 }
 
 /// @nodoc
@@ -310,6 +440,10 @@ class _$UserListStateTearOff {
       users: users,
     );
   }
+
+  FinishedWithError error() {
+    return const FinishedWithError();
+  }
 }
 
 /// @nodoc
@@ -322,6 +456,7 @@ mixin _$UserListState {
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function(List<User> users) loaded,
+    required TResult Function() error,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -329,6 +464,7 @@ mixin _$UserListState {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function(List<User> users)? loaded,
+    TResult Function()? error,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -336,6 +472,7 @@ mixin _$UserListState {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function(List<User> users)? loaded,
+    TResult Function()? error,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -344,6 +481,7 @@ mixin _$UserListState {
     required TResult Function(Initial value) initial,
     required TResult Function(Loading value) loading,
     required TResult Function(Loaded value) loaded,
+    required TResult Function(FinishedWithError value) error,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -351,6 +489,7 @@ mixin _$UserListState {
     TResult Function(Initial value)? initial,
     TResult Function(Loading value)? loading,
     TResult Function(Loaded value)? loaded,
+    TResult Function(FinishedWithError value)? error,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -358,6 +497,7 @@ mixin _$UserListState {
     TResult Function(Initial value)? initial,
     TResult Function(Loading value)? loading,
     TResult Function(Loaded value)? loaded,
+    TResult Function(FinishedWithError value)? error,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -421,6 +561,7 @@ class _$Initial implements Initial {
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function(List<User> users) loaded,
+    required TResult Function() error,
   }) {
     return initial();
   }
@@ -431,6 +572,7 @@ class _$Initial implements Initial {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function(List<User> users)? loaded,
+    TResult Function()? error,
   }) {
     return initial?.call();
   }
@@ -441,6 +583,7 @@ class _$Initial implements Initial {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function(List<User> users)? loaded,
+    TResult Function()? error,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -455,6 +598,7 @@ class _$Initial implements Initial {
     required TResult Function(Initial value) initial,
     required TResult Function(Loading value) loading,
     required TResult Function(Loaded value) loaded,
+    required TResult Function(FinishedWithError value) error,
   }) {
     return initial(this);
   }
@@ -465,6 +609,7 @@ class _$Initial implements Initial {
     TResult Function(Initial value)? initial,
     TResult Function(Loading value)? loading,
     TResult Function(Loaded value)? loaded,
+    TResult Function(FinishedWithError value)? error,
   }) {
     return initial?.call(this);
   }
@@ -475,6 +620,7 @@ class _$Initial implements Initial {
     TResult Function(Initial value)? initial,
     TResult Function(Loading value)? loading,
     TResult Function(Loaded value)? loaded,
+    TResult Function(FinishedWithError value)? error,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -529,6 +675,7 @@ class _$Loading implements Loading {
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function(List<User> users) loaded,
+    required TResult Function() error,
   }) {
     return loading();
   }
@@ -539,6 +686,7 @@ class _$Loading implements Loading {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function(List<User> users)? loaded,
+    TResult Function()? error,
   }) {
     return loading?.call();
   }
@@ -549,6 +697,7 @@ class _$Loading implements Loading {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function(List<User> users)? loaded,
+    TResult Function()? error,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -563,6 +712,7 @@ class _$Loading implements Loading {
     required TResult Function(Initial value) initial,
     required TResult Function(Loading value) loading,
     required TResult Function(Loaded value) loaded,
+    required TResult Function(FinishedWithError value) error,
   }) {
     return loading(this);
   }
@@ -573,6 +723,7 @@ class _$Loading implements Loading {
     TResult Function(Initial value)? initial,
     TResult Function(Loading value)? loading,
     TResult Function(Loaded value)? loaded,
+    TResult Function(FinishedWithError value)? error,
   }) {
     return loading?.call(this);
   }
@@ -583,6 +734,7 @@ class _$Loading implements Loading {
     TResult Function(Initial value)? initial,
     TResult Function(Loading value)? loading,
     TResult Function(Loaded value)? loaded,
+    TResult Function(FinishedWithError value)? error,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -661,6 +813,7 @@ class _$Loaded implements Loaded {
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function(List<User> users) loaded,
+    required TResult Function() error,
   }) {
     return loaded(users);
   }
@@ -671,6 +824,7 @@ class _$Loaded implements Loaded {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function(List<User> users)? loaded,
+    TResult Function()? error,
   }) {
     return loaded?.call(users);
   }
@@ -681,6 +835,7 @@ class _$Loaded implements Loaded {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function(List<User> users)? loaded,
+    TResult Function()? error,
     required TResult orElse(),
   }) {
     if (loaded != null) {
@@ -695,6 +850,7 @@ class _$Loaded implements Loaded {
     required TResult Function(Initial value) initial,
     required TResult Function(Loading value) loading,
     required TResult Function(Loaded value) loaded,
+    required TResult Function(FinishedWithError value) error,
   }) {
     return loaded(this);
   }
@@ -705,6 +861,7 @@ class _$Loaded implements Loaded {
     TResult Function(Initial value)? initial,
     TResult Function(Loading value)? loading,
     TResult Function(Loaded value)? loaded,
+    TResult Function(FinishedWithError value)? error,
   }) {
     return loaded?.call(this);
   }
@@ -715,6 +872,7 @@ class _$Loaded implements Loaded {
     TResult Function(Initial value)? initial,
     TResult Function(Loading value)? loading,
     TResult Function(Loaded value)? loaded,
+    TResult Function(FinishedWithError value)? error,
     required TResult orElse(),
   }) {
     if (loaded != null) {
@@ -730,4 +888,121 @@ abstract class Loaded implements UserListState {
   List<User> get users;
   @JsonKey(ignore: true)
   $LoadedCopyWith<Loaded> get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $FinishedWithErrorCopyWith<$Res> {
+  factory $FinishedWithErrorCopyWith(
+          FinishedWithError value, $Res Function(FinishedWithError) then) =
+      _$FinishedWithErrorCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class _$FinishedWithErrorCopyWithImpl<$Res>
+    extends _$UserListStateCopyWithImpl<$Res>
+    implements $FinishedWithErrorCopyWith<$Res> {
+  _$FinishedWithErrorCopyWithImpl(
+      FinishedWithError _value, $Res Function(FinishedWithError) _then)
+      : super(_value, (v) => _then(v as FinishedWithError));
+
+  @override
+  FinishedWithError get _value => super._value as FinishedWithError;
+}
+
+/// @nodoc
+
+class _$FinishedWithError implements FinishedWithError {
+  const _$FinishedWithError();
+
+  @override
+  String toString() {
+    return 'UserListState.error()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is FinishedWithError);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() loading,
+    required TResult Function(List<User> users) loaded,
+    required TResult Function() error,
+  }) {
+    return error();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? loading,
+    TResult Function(List<User> users)? loaded,
+    TResult Function()? error,
+  }) {
+    return error?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? loading,
+    TResult Function(List<User> users)? loaded,
+    TResult Function()? error,
+    required TResult orElse(),
+  }) {
+    if (error != null) {
+      return error();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(Initial value) initial,
+    required TResult Function(Loading value) loading,
+    required TResult Function(Loaded value) loaded,
+    required TResult Function(FinishedWithError value) error,
+  }) {
+    return error(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(Initial value)? initial,
+    TResult Function(Loading value)? loading,
+    TResult Function(Loaded value)? loaded,
+    TResult Function(FinishedWithError value)? error,
+  }) {
+    return error?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(Initial value)? initial,
+    TResult Function(Loading value)? loading,
+    TResult Function(Loaded value)? loaded,
+    TResult Function(FinishedWithError value)? error,
+    required TResult orElse(),
+  }) {
+    if (error != null) {
+      return error(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class FinishedWithError implements UserListState {
+  const factory FinishedWithError() = _$FinishedWithError;
 }
