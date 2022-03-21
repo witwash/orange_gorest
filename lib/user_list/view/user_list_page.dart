@@ -10,7 +10,10 @@ class UserListPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) => UserListBloc(userRepository: context.read<UserRepository>()),
+      create: (context) => UserListBloc(userRepository: context.read<UserRepository>())
+        ..add(
+          const UserListEvent.started(),
+        ),
       child: Scaffold(
         appBar: AppBar(
           title: const Text('Orange User List'),
