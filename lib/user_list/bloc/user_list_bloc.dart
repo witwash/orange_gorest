@@ -20,22 +20,26 @@ class UserListBloc extends Bloc<UserListEvent, UserListState> {
 
   FutureOr<void> _onStarted(Started event, Emitter<UserListState> emit) async {
     emit(const UserListState.loading());
-    final List<repository.User> users = await userRepository.getUsers();
-    emit(
-      UserListState.loaded(
-        users: users
-            .map(
-              (repository.User u) => User(
-                id: u.id,
-                name: u.name,
-                email: u.email,
-                gender: getGenderEnum(u.gender.toString()),
-                status: u.status,
-              ),
-            )
-            .toList(),
-      ),
-    );
+    try {
+      final List<repository.User> users = await userRepository.getUsers();
+      emit(
+        UserListState.loaded(
+          users: users
+              .map(
+                (repository.User u) => User(
+                  id: u.id,
+                  name: u.name,
+                  email: u.email,
+                  gender: getGenderEnum(u.gender.toString()),
+                  status: u.status,
+                ),
+              )
+              .toList(),
+        ),
+      );
+    } catch (_) {
+      emit(const UserListState.error());
+    }
   }
 
   FutureOr<void> _onFinished(Finished event, Emitter<UserListState> emit) {}

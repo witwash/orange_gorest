@@ -7,7 +7,7 @@ import 'package:http/http.dart' as http;
 class UserRepository {
   static ChopperClient create(List<ChopperService> services, [http.BaseClient? httpClient]) => ChopperClient(
         client: httpClient,
-        baseUrl: 'https://gorest.co.in/public/v2/',
+        baseUrl: 'https://gorest.co.in/public/v2',
         services: services,
         converter: JsonSerializableConverter(),
       );
@@ -24,7 +24,7 @@ class UserRepository {
     if (users != null) {
       return users;
     } else {
-      throw Exception('lalala llolo');
+      throw Exception(result.error);
     }
   }
 }
