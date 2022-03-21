@@ -27,7 +27,7 @@ class _$UserTearOff {
       required String name,
       required String email,
       required Gender gender,
-      required bool status}) {
+      @JsonKey(fromJson: User.getStatus) required bool status}) {
     return _User(
       id: id,
       name: name,
@@ -51,6 +51,7 @@ mixin _$User {
   String get name => throw _privateConstructorUsedError;
   String get email => throw _privateConstructorUsedError;
   Gender get gender => throw _privateConstructorUsedError;
+  @JsonKey(fromJson: User.getStatus)
   bool get status => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -62,7 +63,12 @@ mixin _$User {
 abstract class $UserCopyWith<$Res> {
   factory $UserCopyWith(User value, $Res Function(User) then) =
       _$UserCopyWithImpl<$Res>;
-  $Res call({int id, String name, String email, Gender gender, bool status});
+  $Res call(
+      {int id,
+      String name,
+      String email,
+      Gender gender,
+      @JsonKey(fromJson: User.getStatus) bool status});
 }
 
 /// @nodoc
@@ -111,7 +117,12 @@ abstract class _$UserCopyWith<$Res> implements $UserCopyWith<$Res> {
   factory _$UserCopyWith(_User value, $Res Function(_User) then) =
       __$UserCopyWithImpl<$Res>;
   @override
-  $Res call({int id, String name, String email, Gender gender, bool status});
+  $Res call(
+      {int id,
+      String name,
+      String email,
+      Gender gender,
+      @JsonKey(fromJson: User.getStatus) bool status});
 }
 
 /// @nodoc
@@ -164,7 +175,7 @@ class _$_User implements _User {
       required this.name,
       required this.email,
       required this.gender,
-      required this.status});
+      @JsonKey(fromJson: User.getStatus) required this.status});
 
   factory _$_User.fromJson(Map<String, dynamic> json) => _$$_UserFromJson(json);
 
@@ -177,6 +188,7 @@ class _$_User implements _User {
   @override
   final Gender gender;
   @override
+  @JsonKey(fromJson: User.getStatus)
   final bool status;
 
   @override
@@ -222,7 +234,7 @@ abstract class _User implements User {
       required String name,
       required String email,
       required Gender gender,
-      required bool status}) = _$_User;
+      @JsonKey(fromJson: User.getStatus) required bool status}) = _$_User;
 
   factory _User.fromJson(Map<String, dynamic> json) = _$_User.fromJson;
 
@@ -235,6 +247,7 @@ abstract class _User implements User {
   @override
   Gender get gender;
   @override
+  @JsonKey(fromJson: User.getStatus)
   bool get status;
   @override
   @JsonKey(ignore: true)

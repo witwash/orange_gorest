@@ -30,7 +30,7 @@ class UserListBloc extends Bloc<UserListEvent, UserListState> {
                   id: u.id,
                   name: u.name,
                   email: u.email,
-                  gender: getGenderEnum(u.gender.toString()),
+                  gender: getGenderEnum(u.gender.name),
                   status: u.status,
                 ),
               )

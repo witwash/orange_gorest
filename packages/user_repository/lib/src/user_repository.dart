@@ -19,12 +19,14 @@ class UserRepository {
   }) : _chopperClient = chopperClient ?? UserRepository.create([UsersApiService.create()]);
 
   Future<List<User>> getUsers() async {
-    final Response<List<User>> result = await _chopperClient.getService<UsersApiService>().getUsers();
-    final users = result.body;
-    if (users != null) {
-      return users;
-    } else {
-      throw Exception(result.error);
+    print('hello');
+    try {
+      final Response<List<User>> result = await _chopperClient.getService<UsersApiService>().getUsers();
+      final List<User>? users = result.body;
+      return users!;
+    } catch (e) {
+      print(e.toString());
+      return [];
     }
   }
 }

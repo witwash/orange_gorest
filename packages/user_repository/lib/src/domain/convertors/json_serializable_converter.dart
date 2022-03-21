@@ -1,4 +1,4 @@
-import 'dart:convert';
+import 'dart:convert' as JSON;
 
 import 'package:chopper/chopper.dart';
 import 'package:user_repository/src/models/models.dart';
@@ -13,7 +13,7 @@ class JsonSerializableConverter extends JsonConverter {
       return jsonRaw.copyWith(body: null);
     }
 
-    final dynamic body = json.decode(jsonRaw.body as String);
+    final dynamic body = JSON.jsonDecode(jsonRaw.bodyString);
     final dynamic decodedItem = _decode<Item>(body);
     return jsonRaw.copyWith<ResultType>(body: decodedItem as ResultType);
   }

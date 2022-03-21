@@ -19,7 +19,12 @@ class _$UsersApiService extends UsersApiService {
   @override
   Future<Response<List<User>>> getUsers() {
     final $url = '/users';
-    final $request = Request('GET', $url, client.baseUrl);
+    final $headers = {
+      'Accept': 'application/json',
+      'Content-Type': 'application/json',
+    };
+
+    final $request = Request('GET', $url, client.baseUrl, headers: $headers);
     return client.send<List<User>, User>($request);
   }
 }

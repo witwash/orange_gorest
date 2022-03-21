@@ -11,7 +11,7 @@ _$_User _$$_UserFromJson(Map<String, dynamic> json) => _$_User(
       name: json['name'] as String,
       email: json['email'] as String,
       gender: $enumDecode(_$GenderEnumMap, json['gender']),
-      status: json['status'] as bool,
+      status: User.getStatus(json['status'] as String),
     );
 
 Map<String, dynamic> _$$_UserToJson(_$_User instance) => <String, dynamic>{

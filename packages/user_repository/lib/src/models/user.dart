@@ -17,8 +17,12 @@ class User with _$User {
     required String name,
     required String email,
     required Gender gender,
-    required bool status,
+    @JsonKey(fromJson: User.getStatus) required bool status,
   }) = _User;
 
   factory User.fromJson(Map<String, dynamic> json) => _$UserFromJson(json);
+
+  static bool getStatus(String status) {
+    return status == 'active';
+  }
 }
