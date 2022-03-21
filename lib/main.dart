@@ -14,9 +14,9 @@ class MyApp extends StatelessWidget {
     return RepositoryProvider(
       create: (context) => UserRepository(),
       child: MaterialApp(
-        title: 'Flutter Demo',
+        title: 'Orange User',
         theme: ThemeData(
-          primarySwatch: Colors.blue,
+          primarySwatch: Colors.orange,
         ),
         home: const UserListPage(),
       ),
