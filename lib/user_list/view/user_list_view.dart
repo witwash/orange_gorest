@@ -53,19 +53,33 @@ class _LoadedWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return ListView.builder(
       itemBuilder: (context, index) {
-        return Card(
-          elevation: 4,
-          child: ListTile(
-            title: Text('User: ${users[index].name}'),
-            subtitle: Text('Details:  ${users[index].email}'),
-            tileColor: users[index].status ? Colors.white : Colors.grey,
-            onTap: () {
-              context.read<UserListBloc>().add(UserListEvent.getUser(userId: users[index].id));
-            },
-          ),
-        );
+        return _ListItem(user: users[index]);
       },
       itemCount: users.length,
+    );
+  }
+}
+
+class _ListItem extends StatelessWidget {
+  const _ListItem({
+    Key? key,
+    required this.user,
+  }) : super(key: key);
+
+  final User user;
+
+  @override
+  Widget build(BuildContext context) {
+    return Card(
+      elevation: 4,
+      child: ListTile(
+        title: Text('User: ${user.name}'),
+        subtitle: Text('Details:  ${user.email}'),
+        tileColor: user.status ? Colors.white : Colors.grey,
+        onTap: () {
+          context.read<UserListBloc>().add(UserListEvent.getUser(userId: user.id));
+        },
+      ),
     );
   }
 }
