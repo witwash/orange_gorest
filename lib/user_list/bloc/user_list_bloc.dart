@@ -1,6 +1,5 @@
 import 'dart:async';
-import 'package:bloc/bloc.dart';
-import 'package:chopper/chopper.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:orange_gorest/user_list/models/models.dart';
 import 'package:user_repository/user_repository.dart' as repository;
@@ -14,6 +13,7 @@ class UserListBloc extends Bloc<UserListEvent, UserListState> {
     on<Started>(_onStarted);
     on<Finished>(_onFinished);
     on<Error>(_onError);
+    on<GetUser>(_getUser);
   }
 
   final repository.UserRepository userRepository;
@@ -21,24 +21,38 @@ class UserListBloc extends Bloc<UserListEvent, UserListState> {
   FutureOr<void> _onStarted(Started event, Emitter<UserListState> emit) async {
     emit(const UserListState.loading());
     try {
-      final List<repository.User> users = await userRepository.getUsers();
-      emit(
-        UserListState.loaded(
-          users: users
-              .map(
-                (repository.User u) => User(
-                  id: u.id,
-                  name: u.name,
-                  email: u.email,
-                  gender: getGenderEnum(u.gender.name),
-                  status: u.status,
-                ),
-              )
-              .toList(),
-        ),
-      );
+      final List<repository.User>? users = await userRepository.getUsers();
+      if (users != null) {
+        emit(
+          UserListState.loaded(
+            users: users
+                .map(
+                  (repository.User u) => User(
+                    id: u.id,
+                    name: u.name,
+                    email: u.email,
+                    gender: getGenderEnum(u.gender.name),
+                    status: u.status,
+                  ),
+                )
+                .toList(),
+          ),
+        );
+      } else {
+        //got empty list of users
+        emit(const UserListState.error());
+      }
     } catch (_) {
       emit(const UserListState.error());
+    }
+  }
+
+  Future<void> _getUser(GetUser event, Emitter<UserListState> emit) async {
+    try {
+      final repository.User? user = await userRepository.getUser(event.userId);
+      print(user.toString());
+    } catch (_) {
+      throw Exception();
     }
   }
 

@@ -29,6 +29,12 @@ class _$UserListEventTearOff {
   Error error() {
     return const Error();
   }
+
+  GetUser getUser({required int userId}) {
+    return GetUser(
+      userId: userId,
+    );
+  }
 }
 
 /// @nodoc
@@ -41,6 +47,7 @@ mixin _$UserListEvent {
     required TResult Function() startLoading,
     required TResult Function() loadingFinished,
     required TResult Function() error,
+    required TResult Function(int userId) getUser,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -48,6 +55,7 @@ mixin _$UserListEvent {
     TResult Function()? startLoading,
     TResult Function()? loadingFinished,
     TResult Function()? error,
+    TResult Function(int userId)? getUser,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -55,6 +63,7 @@ mixin _$UserListEvent {
     TResult Function()? startLoading,
     TResult Function()? loadingFinished,
     TResult Function()? error,
+    TResult Function(int userId)? getUser,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -63,6 +72,7 @@ mixin _$UserListEvent {
     required TResult Function(Started value) startLoading,
     required TResult Function(Finished value) loadingFinished,
     required TResult Function(Error value) error,
+    required TResult Function(GetUser value) getUser,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -70,6 +80,7 @@ mixin _$UserListEvent {
     TResult Function(Started value)? startLoading,
     TResult Function(Finished value)? loadingFinished,
     TResult Function(Error value)? error,
+    TResult Function(GetUser value)? getUser,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -77,6 +88,7 @@ mixin _$UserListEvent {
     TResult Function(Started value)? startLoading,
     TResult Function(Finished value)? loadingFinished,
     TResult Function(Error value)? error,
+    TResult Function(GetUser value)? getUser,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -140,6 +152,7 @@ class _$Started implements Started {
     required TResult Function() startLoading,
     required TResult Function() loadingFinished,
     required TResult Function() error,
+    required TResult Function(int userId) getUser,
   }) {
     return startLoading();
   }
@@ -150,6 +163,7 @@ class _$Started implements Started {
     TResult Function()? startLoading,
     TResult Function()? loadingFinished,
     TResult Function()? error,
+    TResult Function(int userId)? getUser,
   }) {
     return startLoading?.call();
   }
@@ -160,6 +174,7 @@ class _$Started implements Started {
     TResult Function()? startLoading,
     TResult Function()? loadingFinished,
     TResult Function()? error,
+    TResult Function(int userId)? getUser,
     required TResult orElse(),
   }) {
     if (startLoading != null) {
@@ -174,6 +189,7 @@ class _$Started implements Started {
     required TResult Function(Started value) startLoading,
     required TResult Function(Finished value) loadingFinished,
     required TResult Function(Error value) error,
+    required TResult Function(GetUser value) getUser,
   }) {
     return startLoading(this);
   }
@@ -184,6 +200,7 @@ class _$Started implements Started {
     TResult Function(Started value)? startLoading,
     TResult Function(Finished value)? loadingFinished,
     TResult Function(Error value)? error,
+    TResult Function(GetUser value)? getUser,
   }) {
     return startLoading?.call(this);
   }
@@ -194,6 +211,7 @@ class _$Started implements Started {
     TResult Function(Started value)? startLoading,
     TResult Function(Finished value)? loadingFinished,
     TResult Function(Error value)? error,
+    TResult Function(GetUser value)? getUser,
     required TResult orElse(),
   }) {
     if (startLoading != null) {
@@ -248,6 +266,7 @@ class _$Finished implements Finished {
     required TResult Function() startLoading,
     required TResult Function() loadingFinished,
     required TResult Function() error,
+    required TResult Function(int userId) getUser,
   }) {
     return loadingFinished();
   }
@@ -258,6 +277,7 @@ class _$Finished implements Finished {
     TResult Function()? startLoading,
     TResult Function()? loadingFinished,
     TResult Function()? error,
+    TResult Function(int userId)? getUser,
   }) {
     return loadingFinished?.call();
   }
@@ -268,6 +288,7 @@ class _$Finished implements Finished {
     TResult Function()? startLoading,
     TResult Function()? loadingFinished,
     TResult Function()? error,
+    TResult Function(int userId)? getUser,
     required TResult orElse(),
   }) {
     if (loadingFinished != null) {
@@ -282,6 +303,7 @@ class _$Finished implements Finished {
     required TResult Function(Started value) startLoading,
     required TResult Function(Finished value) loadingFinished,
     required TResult Function(Error value) error,
+    required TResult Function(GetUser value) getUser,
   }) {
     return loadingFinished(this);
   }
@@ -292,6 +314,7 @@ class _$Finished implements Finished {
     TResult Function(Started value)? startLoading,
     TResult Function(Finished value)? loadingFinished,
     TResult Function(Error value)? error,
+    TResult Function(GetUser value)? getUser,
   }) {
     return loadingFinished?.call(this);
   }
@@ -302,6 +325,7 @@ class _$Finished implements Finished {
     TResult Function(Started value)? startLoading,
     TResult Function(Finished value)? loadingFinished,
     TResult Function(Error value)? error,
+    TResult Function(GetUser value)? getUser,
     required TResult orElse(),
   }) {
     if (loadingFinished != null) {
@@ -356,6 +380,7 @@ class _$Error implements Error {
     required TResult Function() startLoading,
     required TResult Function() loadingFinished,
     required TResult Function() error,
+    required TResult Function(int userId) getUser,
   }) {
     return error();
   }
@@ -366,6 +391,7 @@ class _$Error implements Error {
     TResult Function()? startLoading,
     TResult Function()? loadingFinished,
     TResult Function()? error,
+    TResult Function(int userId)? getUser,
   }) {
     return error?.call();
   }
@@ -376,6 +402,7 @@ class _$Error implements Error {
     TResult Function()? startLoading,
     TResult Function()? loadingFinished,
     TResult Function()? error,
+    TResult Function(int userId)? getUser,
     required TResult orElse(),
   }) {
     if (error != null) {
@@ -390,6 +417,7 @@ class _$Error implements Error {
     required TResult Function(Started value) startLoading,
     required TResult Function(Finished value) loadingFinished,
     required TResult Function(Error value) error,
+    required TResult Function(GetUser value) getUser,
   }) {
     return error(this);
   }
@@ -400,6 +428,7 @@ class _$Error implements Error {
     TResult Function(Started value)? startLoading,
     TResult Function(Finished value)? loadingFinished,
     TResult Function(Error value)? error,
+    TResult Function(GetUser value)? getUser,
   }) {
     return error?.call(this);
   }
@@ -410,6 +439,7 @@ class _$Error implements Error {
     TResult Function(Started value)? startLoading,
     TResult Function(Finished value)? loadingFinished,
     TResult Function(Error value)? error,
+    TResult Function(GetUser value)? getUser,
     required TResult orElse(),
   }) {
     if (error != null) {
@@ -421,6 +451,148 @@ class _$Error implements Error {
 
 abstract class Error implements UserListEvent {
   const factory Error() = _$Error;
+}
+
+/// @nodoc
+abstract class $GetUserCopyWith<$Res> {
+  factory $GetUserCopyWith(GetUser value, $Res Function(GetUser) then) =
+      _$GetUserCopyWithImpl<$Res>;
+  $Res call({int userId});
+}
+
+/// @nodoc
+class _$GetUserCopyWithImpl<$Res> extends _$UserListEventCopyWithImpl<$Res>
+    implements $GetUserCopyWith<$Res> {
+  _$GetUserCopyWithImpl(GetUser _value, $Res Function(GetUser) _then)
+      : super(_value, (v) => _then(v as GetUser));
+
+  @override
+  GetUser get _value => super._value as GetUser;
+
+  @override
+  $Res call({
+    Object? userId = freezed,
+  }) {
+    return _then(GetUser(
+      userId: userId == freezed
+          ? _value.userId
+          : userId // ignore: cast_nullable_to_non_nullable
+              as int,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$GetUser implements GetUser {
+  const _$GetUser({required this.userId});
+
+  @override
+  final int userId;
+
+  @override
+  String toString() {
+    return 'UserListEvent.getUser(userId: $userId)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is GetUser &&
+            const DeepCollectionEquality().equals(other.userId, userId));
+  }
+
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(userId));
+
+  @JsonKey(ignore: true)
+  @override
+  $GetUserCopyWith<GetUser> get copyWith =>
+      _$GetUserCopyWithImpl<GetUser>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() startLoading,
+    required TResult Function() loadingFinished,
+    required TResult Function() error,
+    required TResult Function(int userId) getUser,
+  }) {
+    return getUser(userId);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? startLoading,
+    TResult Function()? loadingFinished,
+    TResult Function()? error,
+    TResult Function(int userId)? getUser,
+  }) {
+    return getUser?.call(userId);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? startLoading,
+    TResult Function()? loadingFinished,
+    TResult Function()? error,
+    TResult Function(int userId)? getUser,
+    required TResult orElse(),
+  }) {
+    if (getUser != null) {
+      return getUser(userId);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(Started value) startLoading,
+    required TResult Function(Finished value) loadingFinished,
+    required TResult Function(Error value) error,
+    required TResult Function(GetUser value) getUser,
+  }) {
+    return getUser(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(Started value)? startLoading,
+    TResult Function(Finished value)? loadingFinished,
+    TResult Function(Error value)? error,
+    TResult Function(GetUser value)? getUser,
+  }) {
+    return getUser?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(Started value)? startLoading,
+    TResult Function(Finished value)? loadingFinished,
+    TResult Function(Error value)? error,
+    TResult Function(GetUser value)? getUser,
+    required TResult orElse(),
+  }) {
+    if (getUser != null) {
+      return getUser(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class GetUser implements UserListEvent {
+  const factory GetUser({required int userId}) = _$GetUser;
+
+  int get userId;
+  @JsonKey(ignore: true)
+  $GetUserCopyWith<GetUser> get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc

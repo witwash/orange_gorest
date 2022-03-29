@@ -14,15 +14,28 @@ class UserListPage extends StatelessWidget {
         ..add(
           const UserListEvent.startLoading(),
         ),
-      child: Scaffold(
-        appBar: AppBar(
-          title: const Text('Orange User List'),
-        ),
-        body: const UserListView(),
-        floatingActionButton: FloatingActionButton(
-          child: const Icon(Icons.add),
-          onPressed: () {},
-        ),
+      child: const UserListPageWidget(),
+    );
+  }
+}
+
+class UserListPageWidget extends StatelessWidget {
+  const UserListPageWidget({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('Orange User List'),
+      ),
+      body: const UserListView(),
+      floatingActionButton: FloatingActionButton(
+        child: const Icon(Icons.add),
+        onPressed: () {
+          context.read<UserListBloc>().add(const UserListEvent.getUser(userId: 3806));
+        },
       ),
     );
   }

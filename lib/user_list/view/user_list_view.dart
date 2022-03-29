@@ -58,6 +58,10 @@ class _LoadedWidget extends StatelessWidget {
           child: ListTile(
             title: Text('User: ${users[index].name}'),
             subtitle: Text('Details:  ${users[index].email}'),
+            tileColor: users[index].status ? Colors.white : Colors.grey,
+            onTap: () {
+              context.read<UserListBloc>().add(UserListEvent.getUser(userId: users[index].id));
+            },
           ),
         );
       },

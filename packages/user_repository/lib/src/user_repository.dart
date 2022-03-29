@@ -10,6 +10,9 @@ class UserRepository {
         baseUrl: 'https://gorest.co.in/public/v2',
         services: services,
         converter: JsonSerializableConverter(),
+        interceptors: [
+          const HeadersInterceptor({'Accept': 'application/json', 'Content-Type': 'application/json'})
+        ],
       );
 
   final ChopperClient _chopperClient;
@@ -18,15 +21,23 @@ class UserRepository {
     ChopperClient? chopperClient,
   }) : _chopperClient = chopperClient ?? UserRepository.create([UsersApiService.create()]);
 
-  Future<List<User>> getUsers() async {
-    print('hello');
+  Future<List<User>?> getUsers() async {
     try {
       final Response<List<User>> result = await _chopperClient.getService<UsersApiService>().getUsers();
       final List<User>? users = result.body;
-      return users!;
+      return users;
     } catch (e) {
-      print(e.toString());
-      return [];
+      throw Exception();
+    }
+  }
+
+  Future<User?> getUser(int id) async {
+    try {
+      final Response<User> result = await _chopperClient.getService<UsersApiService>().getUser(id.toString());
+      final User? user = result.body;
+      return user;
+    } catch (_) {
+      throw Exception('Error while getting user');
     }
   }
 }

@@ -13,8 +13,8 @@ abstract class UsersApiService extends ChopperService {
   // @Post()
   // Future<Response> addUser(@Body() Map<String, dynamic> body);
 
-  // @Get(path: '/{user_id}')
-  // Future<User> getUser(@Path('user_id') String userId);
+  @Get(path: '/{user_id}')
+  Future<Response<User>> getUser(@Path('user_id') String userId);
 
   // @Put(path: '/{user_id}')
   // @Patch(path: '/{user_id}')
