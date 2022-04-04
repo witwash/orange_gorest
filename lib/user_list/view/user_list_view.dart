@@ -53,31 +53,51 @@ class _LoadedWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return ListView.builder(
       itemBuilder: (context, index) {
-        return _ListItem(user: users[index]);
+        return _ListItem(userHolder: _ListItemHolder(userData: users[index]));
       },
       itemCount: users.length,
     );
   }
 }
 
-class _ListItem extends StatelessWidget {
+class _ListItemHolder {
+  _ListItemHolder({
+    required this.userData,
+  }) : selected = false;
+
+  bool selected;
+  final User userData;
+}
+
+class _ListItem extends StatefulWidget {
   const _ListItem({
     Key? key,
-    required this.user,
+    required this.userHolder,
   }) : super(key: key);
 
-  final User user;
+  final _ListItemHolder userHolder;
 
+  @override
+  State<_ListItem> createState() => _ListItemState();
+}
+
+class _ListItemState extends State<_ListItem> {
   @override
   Widget build(BuildContext context) {
     return Card(
       elevation: 4,
       child: ListTile(
-        title: Text('User: ${user.name}'),
-        subtitle: Text('Details:  ${user.email}'),
-        tileColor: user.status ? Colors.white : Colors.grey,
+        title: Text('User: ${widget.userHolder.userData.name}'),
+        subtitle: Text('Details:  ${widget.userHolder.userData.email}'),
+        selected: widget.userHolder.selected,
+        selectedTileColor: Colors.grey,
         onTap: () {
-          context.read<UserListBloc>().add(UserListEvent.getUser(userId: user.id));
+          context.read<UserListBloc>().add(UserListEvent.getUser(userId: widget.userHolder.userData.id));
+        },
+        onLongPress: () {
+          setState(() {
+            widget.userHolder.selected = !widget.userHolder.selected;
+          });
         },
       ),
     );

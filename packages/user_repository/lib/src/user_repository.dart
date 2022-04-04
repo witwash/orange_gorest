@@ -1,8 +1,9 @@
 import 'package:chopper/chopper.dart';
+import 'package:http/http.dart' as http;
+import 'package:user_repository/env.dart' as env;
 import 'package:user_repository/src/domain/convertors/json_serializable_converter.dart';
 import 'package:user_repository/src/domain/services/users_api_service.dart';
 import 'package:user_repository/src/models/models.dart';
-import 'package:http/http.dart' as http;
 
 class UserRepository {
   static ChopperClient create(List<ChopperService> services, [http.BaseClient? httpClient]) => ChopperClient(
@@ -11,7 +12,11 @@ class UserRepository {
         services: services,
         converter: JsonSerializableConverter(),
         interceptors: [
-          const HeadersInterceptor({'Accept': 'application/json', 'Content-Type': 'application/json'})
+          const HeadersInterceptor({
+            'Accept': 'application/json',
+            'Content-Type': 'application/json',
+            'Authorization': 'Bearer ${env.apiKey}',
+          })
         ],
       );
 

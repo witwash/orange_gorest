@@ -13,6 +13,7 @@ class UserListBloc extends Bloc<UserListEvent, UserListState> {
     on<Started>(_onStarted);
     on<Finished>(_onFinished);
     on<Error>(_onError);
+    //todo add pause?
     on<GetUser>(_getUser);
   }
 
